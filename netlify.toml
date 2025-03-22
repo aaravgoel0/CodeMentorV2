@@ -1,6 +1,6 @@
 [build]
-  base    = "front-end"
-  publish = "build"
+  base = "front-end"
+  publish = "front-end/build"
   command = "npm install && npm run build"
 
 [[redirects]]
