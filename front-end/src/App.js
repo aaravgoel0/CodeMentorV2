@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
-import CodeEditor from './components/CodeEditor';
 import './App.css';
+import CodeEditor from './components/CodeEditor';
+import FeedbackPanel from './components/FeedbackPanel';
 
 function App() {
-  const [feedback, setFeedback] = useState(null); // Define setFeedback using useState
-
-  const handleSubmitCode = (feedbackData) => {
-    setFeedback(feedbackData); 
-  };
+  const [feedback, setFeedback] = useState(null); // eslint-disable-line no-unused-vars
 
   return (
-    <div className="App-container">
-      <header>
-        <h1>CodeMentor</h1>
+    <div className="App">
+      <header className="App-header">
+        <h1>Code Mentor</h1>
       </header>
-      <p>Get feedback from your personal AI</p>
-      <br/>
       <main>
-        <CodeEditor onSubmitCode={handleSubmitCode} />
+        <CodeEditor />
+        <FeedbackPanel />
       </main>
     </div>
   );
