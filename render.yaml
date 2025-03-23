@@ -4,7 +4,7 @@ services:
     env: python
     plan: free
     buildCommand: "./build.sh"
-    startCommand: "gunicorn app2:app"  # Change if necessary
+    startCommand: "gunicorn -w 4 -b 0.0.0.0:10000 app2:app"  # Ensures proper Gunicorn setup
     rootDir: "back-end"  # Ensures Render deploys only the backend
     envVars:
       - key: COHERE_API_KEY
