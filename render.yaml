@@ -4,7 +4,8 @@ services:
     env: python
     plan: free
     buildCommand: "./build.sh"
-    startCommand: "python back-end/app2.py"
+    startCommand: "gunicorn app2:app"  # Change if necessary
+    rootDir: "back-end"  # Ensures Render deploys only the backend
     envVars:
       - key: COHERE_API_KEY
         value: "NKZD0sANta3S02GP5wCUYrPev7dRHW5WDbJFdbJ2"
@@ -19,5 +20,5 @@ services:
   - type: web
     name: frontend
     env: static
-    buildCommand: npm run build --prefix front-end
-    publishPath: front-end/build
+    buildCommand: "npm install && npm run build --prefix front-end"
+    publishPath: "front-end/build"
