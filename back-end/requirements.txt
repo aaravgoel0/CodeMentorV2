@@ -1,0 +1,36 @@
+# Core Flask dependencies
+Flask
+gunicorn  # For running Flask in production
+
+# Database-related dependencies (Only if you're using a database)
+flask_sqlalchemy  # ORM for SQL databases
+flask_migrate  # Handles database migrations
+psycopg2-binary  # PostgreSQL adapter (if using PostgreSQL)
+
+# If you're using Elasticsearch
+elasticsearch  # Python client for Elasticsearch
+
+# Additional useful Flask extensions
+flask_cors  # Handles CORS requests (useful for frontend-backend communication)
+flask_restful  # Helps in building REST APIs
+
+# AI/ML or NLP (Since you are using Cohere API)
+cohere  # Cohere API Python client
+
+# Other utilities (optional)
+requests  # For making HTTP requests
+python-dotenv  # To manage environment variables from a .env file
+
+# Pin versions for stability in production (Example)
+Flask==3.0.0
+gunicorn==21.2.0
+flask_sqlalchemy==3.1.1
+flask_migrate==4.0.5
+psycopg2-binary==2.9.9
+elasticsearch==8.13.1
+flask_cors==4.0.0
+flask_restful==0.3.10
+cohere==4.51
+requests==2.31.0
+python-dotenv==1.0.1
+
