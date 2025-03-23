@@ -3,12 +3,12 @@ services:
     name: codementor-backend
     env: python
     plan: free
-    buildCommand: "./build.sh"
-    startCommand: "gunicorn -w 4 -b 0.0.0.0:10000 app2:app"  # Ensures proper Gunicorn setup
-    rootDir: "back-end"  # Ensures Render deploys only the backend
+    buildCommand: "cd back-end && ./build.sh"
+    startCommand: "gunicorn -w 4 -b 0.0.0.0:10000 back-end.app2:app"  # If app2.py is in back-end
+    rootDir: "back-end"
     envVars:
       - key: COHERE_API_KEY
-        value: "NKZD0sANta3S02GP5wCUYrPev7dRHW5WDbJFdbJ2"
+        sync: false  # Prevents storing sensitive keys in YAML (set this in Render Dashboard)
 
   - type: elasticsearch
     name: elasticsearch
@@ -20,5 +20,5 @@ services:
   - type: web
     name: frontend
     env: static
-    buildCommand: "npm install && npm run build --prefix front-end"
+    buildCommand: "cd front-end && npm install && npm run build"
     publishPath: "front-end/build"
