@@ -1,3 +1,5 @@
+
+
 #!/bin/bash
 
 # Exit immediately if a command fails
@@ -18,7 +20,7 @@ fi
 # Step 3: Install backend dependencies
 echo "Installing backend dependencies..."
 pip install --upgrade pip
-pip install -r ../requirements.txt
+pip install -r requirements.txt
 
 # Step 4: Apply database migrations (if applicable)
 echo "Applying database migrations (if applicable)..."
