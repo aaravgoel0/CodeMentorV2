@@ -9,7 +9,4 @@ echo "Starting build process..."
 echo "Installing backend dependencies..."
 pip install -r requirements.txt
 
-echo "Returning to root directory..."
-cd ..
-
 echo "Build process completed successfully!"
