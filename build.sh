@@ -1,29 +1,40 @@
-
-
 #!/bin/bash
 
-# Exit immediately if a command fails
+# Exit immediately if any command fails
 set -e
 
-echo "Starting backend-only build process..."
+echo "🚀 Starting backend-only build process..."
 
 # Step 1: Navigate to the backend directory
-echo "Navigating to the backend directory..."
+cd "$(dirname "$0")"  # Ensures script runs from any location
 cd back-end
 
-# Step 2: Ensure requirements.txt exists before trying to install
+# Step 2: Ensure Python is up to date
+echo "🔄 Updating Python and pip..."
+python -m pip install --upgrade pip
+
+# Step 3: Create a virtual environment (optional but recommended)
+if [ ! -d "venv" ]; then
+    echo "🛠 Creating virtual environment..."
+    python -m venv venv
+fi
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Step 4: Ensure requirements.txt exists before proceeding
 if [ ! -f "requirements.txt" ]; then
-    echo "Error: requirements.txt not found in back-end directory!"
+    echo "❌ Error: requirements.txt not found in back-end directory!"
     exit 1
 fi
 
-# Step 3: Install backend dependencies
-echo "Installing backend dependencies..."
-pip install --upgrade pip
+# Step 5: Install backend dependencies
+echo "📦 Installing backend dependencies..."
 pip install -r requirements.txt
 
-# Step 4: Apply database migrations (if applicable)
-echo "Applying database migrations (if applicable)..."
-# flask db upgrade  # Uncomment this if you're using Flask-Migrate
+# Step 6: Apply database migrations (if applicable)
+# Uncomment this if you're using Flask-Migrate
+# echo "⚡ Applying database migrations..."
+# flask db upgrade  
 
-echo "Backend setup complete!"
+echo "✅ Backend setup complete!"
