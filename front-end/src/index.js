@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const button = document.createElement('button');
     button.textContent = "Use CodeMentor";
     button.addEventListener('click', function() {
-        window.location.href = "/project.html"; // Redirect to the existing project page
+        window.location.href = "project.html"; // Correct path to project.html
     });
 
     header.appendChild(title);
