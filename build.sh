@@ -1,12 +1,17 @@
 #!/bin/bash
 
-# Exit the script if any command fails
+# Exit immediately if a command fails
 set -e
 
-echo "Starting build process..."
+echo "Navigating to the backend directory..."
+cd back-end
 
-# Step 1: Install backend dependencies
-echo "Installing backend dependencies..."
+echo "Installing Python dependencies..."
+pip install --upgrade pip
 pip install -r requirements.txt
 
-echo "Build process completed successfully!"
+echo "Applying database migrations (if applicable)..."
+# Uncomment the next line if using Flask-Migrate
+# flask db upgrade
+
+echo "Backend setup complete!"
